@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Employee Wellness Portal</title>
+	<link rel="icon" type="image/x-icon" href="../resources/img/logo.png">
+	<script type="module" src="../scripts/main.js" defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+</head>
+<body>
+	<div class="wrapper">
+		<!-- The vertical navbar -->
+		<div class="navbar">
+			<div class="logo">
+				<!-- <h2>EWP</h2> -->
+				<img src="../resources/img/logo.png" alt="logo" width="50px" id="logo">
+			</div>
+			<div class="pages">
+				<a id="home" class="active">Home</a>
+				<a id="workout-logs">Workout Logs</a>
+				<a id="nutrition-logs">Nutrition Logs</a>
+				<a id="about">About</a>
+				<a id="contact">Contact</a>
+			</div>
+		</div>
+		
+		<!-- The main content area -->
+		<div id="main-content">
+
+		</div>
+	</div>
+
+<!-- TEMPLATES -->
+	<!-- Homepage Template -->
+	<template id="homepage-template">
+		<div class="card">
+			<div class="homepage">
+				<div>
+					<h1 class="welcome-message"></h1>
+					<p>Let's continue your wellness journey and see the progress you've made!</p>
+					<button id="view-progress">View Progress</button>
+				</div>
+			</div>
+		</div>
+	</template>
+	<!-- Workout Logs Page Template -->
+	<template id="workout-logs-template">
+		<div class="card">
+			<h1>Workout Log</h1>
+			<p>Welcome to your workout log! Please use the buttons below to add or delete exercises.</p>
+			<div class='button-bar'>
+				<button id='add-exercise-btn' class="add-btn">Add Exercise</button>
+				<button id='delete-exercise-btn' class="delete-btn">Delete Exercise</button>
+			</div>
+			<div class="data-entry">
+				<form id="workout-entry-form" hidden>
+					<div class="form-component">
+						<label for="date">Date</label>
+						<input type="date" name="date" required>
+					</div>
+					<div class="form-component">
+						<label for="exerciseType">Exercise Type:</label>
+						<input type="text" name="exerciseType" required>
+					</div>
+					<div class="form-component">
+						<label for="duration">Duration (minutes):</label>
+						<input type="number" name="duration" required step="1" min="1">
+					</div>
+					<div class="form-component">
+						<label for="intensity">Intensity (out of 10):</label>
+						<select name="intensity" required>
+							<option value="">Select intensity</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<div class="form-component button-bar">
+						<button type="submit">Submit</button>
+						<button type="button" class="cancel">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="card workout-update" hidden>
+			<h2>Update</h2>
+			<form id="workout-update-form">
+				<div class="form-component" hidden>
+					<input type="number" name="id">
+				</div>
+				<div class="form-component">
+					<label for="date">Date</label>
+					<input type="date" name="date" required>
+				</div>
+				<div class="form-component">
+					<label for="exerciseType">Exercise Type:</label>
+					<input type="text" name="exerciseType" required>
+				</div>
+				<div class="form-component">
+					<label for="duration">Duration (minutes):</label>
+					<input type="number" name="duration" required step="1" min="1">
+				</div>
+				<div class="form-component">
+					<label for="intensity">Intensity (out of 10):</label>
+					<select name="intensity" required>
+						<option value="">Select intensity</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+				<div class="form-component button-bar">
+					<button type="submit">Submit</button>
+					<button type="button" class="cancel">Cancel</button>
+				</div>
+			</form>
+		</div>
+		<div class="card">
+			<div id='workout-log'>
+				<h2>History: </h2>
+				<table id="workout-table" class="selectable-table">
+					<thead>
+						<tr>
+							<th hidden>ID</th>
+							<th>Date</th>
+							<th>Exercise</th>
+							<th>Duration (mins)</th>
+							<th>Intensity</th>
+							<th>Select</th>
+							<th>Update</th>
+						</tr>
+					</thead>
+					<tbody id="workout-table-body">
+						<!-- table rows will be dynamically added here -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</template>
+	<!-- Nutrition Logs Page Template -->
+	<template id="nutrition-logs-template">
+		<div class="card">
+			<h1>Nutrition Log</h1>
+			<p>Welcome to your nutrition log! Please use the buttons below to add or delete food items.</p>
+			<div class='button-bar'>
+				<button id='add-food-btn' class="add-btn">Add Food Item</button>
+				<button id='delete-food-btn' class="delete-btn">Delete Selected Food Items</button>
+			</div>
+			<div class="data-entry">
+				<form id="nutrition-entry-form" hidden>
+					<div class="form-component">
+						<label for="date">Date</label>
+						<input type="date" name="date" required>
+					</div>
+					<div class="form-component">
+						<label for="foodItem">Food Item:</label>
+						<input type="text" name="foodItem" required>
+					</div>
+					<div class="form-component">
+						<label for="portionSize">Portion Size:</label>
+						<select name="portionSize" required>
+							<option value="">Select portion size</option>
+							<option value="small">Small</option>
+							<option value="medium">Medium</option>
+							<option value="large">Large</option>
+						</select>
+					</div>
+					<div class="form-component">
+						<label for="calories">Calories:</label>
+						<input type="number" name="calories" required step="1" min="1">
+					</div>
+					<div class="form-component">
+						<label for="macronutrients">Macronutrients:</label>
+						<div class="macronutrient-inputs">
+							<label for="carbs">Carbs (g):</label>
+							<input type="number" name="carbs" required step="0.1" min="0">
+							<label for="fat">Fat (g):</label>
+							<input type="number" name="fat" required step="0.1" min="0">
+							<label for="protein">Protein (g):</label>
+							<input type="number" name="protein" required step="0.1" min="0">
+						</div>
+					</div>
+					<div class="form-component button-bar">
+						<button type="submit">Submit</button>
+						<button type="button" class="cancel">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="card nutrition-update" hidden>
+			<h2>Update</h2>
+			<form id="nutrition-update-form">
+				<div class="form-component" hidden>
+					<input type="number" name="id">
+				</div>
+				<div class="form-component">
+					<label for="date">Date</label>
+					<input type="date" name="date" required>
+				</div>
+				<div class="form-component">
+					<label for="foodItem">Food Item:</label>
+					<input type="text" name="foodItem" required>
+				</div>
+				<div class="form-component">
+					<label for="portionSize">Portion Size:</label>
+					<select name="portionSize" required>
+						<option value="">Select portion size</option>
+						<option value="small">Small</option>
+						<option value="medium">Medium</option>
+						<option value="large">Large</option>
+					</select>
+				</div>
+				<div class="form-component">
+					<label for="calories">Calories:</label>
+					<input type="number" name="calories" required step="1" min="1">
+				</div>
+				<div class="form-component">
+					<label for="macronutrients">Macronutrients:</label>
+					<div class="macronutrient-inputs">
+						<label for="carbs">Carbs (g):</label>
+						<input type="number" name="carbs" required step="0.1" min="0">
+						<label for="fat">Fat (g):</label>
+						<input type="number" name="fat" required step="0.1" min="0">
+						<label for="protein">Protein (g):</label>
+						<input type="number" name="protein" required step="0.1" min="0">
+					</div>
+				</div>
+				<div class="form-component button-bar">
+					<button type="submit">Submit</button>
+					<button type="button" class="cancel">Cancel</button>
+				</div>
+			</form>
+		</div>
+		<div class="card">
+			<h2>History: </h2>
+			<div id='nutrition-log'>
+				<table id="food-table" class="selectable-table">
+					<thead>
+						<tr>
+							<th hidden>ID</th>
+							<th>Date</th>
+							<th>Food Item</th>
+							<th>Portion Size</th>
+							<th>Calories</th>
+							<th>Macronutrients (g)</th>
+							<th>Select</th>
+							<th>Update</th>
+						</tr>
+					</thead>
+					<tbody id="food-table-body">
+						<!-- table rows will be dynamically added here -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</template>
+	<!-- About Page Template -->
+	<template id="about-page-template">
+		<div class="card">
+			<div class='about'>
+				<h1>About Us</h1>
+				<p>Welcome to the <strong>Employee Wellness Portal</strong>!</p>
+				<p>Our mission is to empower you to achieve your best <strong>health and well-being</strong>, both at work and in your personal life. We believe that a healthy, happy workforce is the foundation of a successful organization.</p>
+				<p>Through our portal, you'll find a variety of resources designed to support your <strong>wellness journey</strong>, including:</p>
+				<ul>
+				  <li><strong>Nutritional guidance/tracking</strong></li>
+				  <li><strong>Workout Logging</strong></li>
+				</ul>
+				<p>Our team of <strong>wellness experts</strong> is dedicated to providing you with the support and resources you need to thrive. We are here to help you make positive changes, one step at a time.</p>
+				<p>Together, let's create a <strong>healthier, happier workplace</strong>!</p>
+			</div>
+		</div>
+	</template>
+	<!-- Contact Page Template -->
+	<template id="contact-page-template">
+		<div class="card">
+			<div class='contact'>
+				<h1>Contact Us</h1>
+				<p>Have a question or comment? We'd love to hear from you!</p>
+				<p>Get in touch with us using the information below:</p>
+				<ul>
+					<li><strong>Email:</strong> <a href='mailto:wellness@company.com'>wellness@company.com</a></li>
+					<li><strong>Phone:</strong> 01234892944</li>
+					<li><strong>Address:</strong> 123 Main St, Anytown, United Kingdom</li>
+				</ul>
+			</div>
+		</div>
+	</template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</html>

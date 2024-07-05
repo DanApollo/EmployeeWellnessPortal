@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script type="module" src="../scripts/login.js" defer></script>
+    <title>Login/Signup</title>
+</head>
+<body>
+    <div>
+        <div id="login-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="email">Email:</label>
+                <input type="text" id="login-email" name="email"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="login-password" name="password"><br><br>
+                <input type="submit" value="Login">
+              </form>
+            <p>Don't have an account? <a id="show-signup" href="#signup-section">Sign up</a></p>
+        </div>
+        <div id="signup-section" hidden>
+            <h2 id="signup">Signup</h2>
+            <form id="signup-form">
+                <label for="username">Username:</label>
+                <input type="text" id="signup-username" name="username"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="signup-email" name="email"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="signup-password" name="password"><br><br>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="signup-confirm-password" name="confirm-password"><br><br>
+                <input type="submit" value="Sign up">
+            </form>
+            <p>Already have an account? <a id="show-login" href="#login-section">Login</a></p>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</html>
