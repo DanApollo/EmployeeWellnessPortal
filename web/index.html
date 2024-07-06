@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="../css/login.css">
     <script type="module" src="../scripts/login.js" defer></script>
     <title>Login/Signup</title>
 </head>
 <body>
-    <div>
+    <div class="card">
         <div id="login-section">
             <h2>Login</h2>
             <form id="login-form">
                 <label for="email">Email:</label>
-                <input type="text" id="login-email" name="email"><br><br>
+                <input type="text" id="login-email" name="email" required><br><br>
                 <label for="password">Password:</label>
-                <input type="password" id="login-password" name="password"><br><br>
+                <input type="password" id="login-password" name="password" required><br><br>
                 <input type="submit" value="Login">
               </form>
             <p>Don't have an account? <a id="show-signup" href="#signup-section">Sign up</a></p>
@@ -24,13 +24,13 @@
             <h2 id="signup">Signup</h2>
             <form id="signup-form">
                 <label for="username">Username:</label>
-                <input type="text" id="signup-username" name="username"><br><br>
+                <input type="text" id="signup-username" name="username" required><br><br>
                 <label for="email">Email:</label>
-                <input type="email" id="signup-email" name="email"><br><br>
+                <input type="email" id="signup-email" name="email" required><br><br>
                 <label for="password">Password:</label>
-                <input type="password" id="signup-password" name="password"><br><br>
+                <input type="password" id="signup-password" name="password" required><br><br>
                 <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="signup-confirm-password" name="confirm-password"><br><br>
+                <input type="password" id="signup-confirm-password" name="confirm-password" required><br><br>
                 <input type="submit" value="Sign up">
             </form>
             <p>Already have an account? <a id="show-login" href="#login-section">Login</a></p>

@@ -75,7 +75,7 @@ export function AddRowToTable(tableID, data, idKey) {
     // add an update button cell
     const updateCell = document.createElement('td');
     const updateButton = document.createElement('button');
-    updateButton.textContent = 'Update';
+    updateButton.textContent = '✒️';
     updateButton.className = 'update-btn';
     updateCell.appendChild(updateButton);
     newRow.appendChild(updateCell);

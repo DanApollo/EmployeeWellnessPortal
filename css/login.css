@@ -1,0 +1,99 @@
+/*  --------------------------------------------------
+                      GLOBAL VARIABLES
+    -------------------------------------------------- */
+:root {
+    --primary-color: #4daf50; 
+    --secondary-color: #74BE54; 
+    --background-color: #d8e9b8; 
+    --text-color: #000; 
+    --accent-color: #fff; 
+    --hover-color: #ffffff70; 
+    --cancel-color: rgb(189, 115, 115);
+}
+
+/*  --------------------------------------------------
+                        Global Styling
+    -------------------------------------------------- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    & a {
+        color: #003610;
+    }
+}
+
+.wrapper {
+    display: flex;
+}
+  
+
+.card {
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 35vmax;
+    margin: 5px auto;
+    background-image: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/*  --------------------------------------------------
+                      Form Styling
+    -------------------------------------------------- */
+
+.login-section, .signup-section {
+    margin-top: 5px;
+    align-items: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+br {
+    display: none;
+}
+
+label {
+    align-self: flex-start;
+    font-weight: bold;
+    grid-column: 1;
+}
+
+input {
+    align-self: flex-end;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="submit"] {
+    grid-column: 1 / 3;
+    font-weight: 700;
+    color: var(--accent-color);
+    background-color: transparent;
+    background-image: radial-gradient(farthest-corner at 50% 50%, transparent 40%, var(--primary-color) 100%);
+    border: 2px solid white;
+    padding: 5px;
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); */
+}
+
+input:focus,
+select:focus {
+    border-color: #b9b9b9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+

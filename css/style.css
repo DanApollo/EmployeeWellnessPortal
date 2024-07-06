@@ -1,9 +1,13 @@
 /* style.css */
 
+
 * [hidden] {
   display: none!important;
 }
 
+/*  --------------------------------------------------
+                      GLOBAL VARIABLES
+    -------------------------------------------------- */
 :root {
   --primary-color: #4daf50; 
   --secondary-color: #74BE54; 
@@ -14,9 +18,12 @@
   --text-color: #000; 
   --accent-color: #fff; 
   --hover-color: #ffffff70; 
+  --cancel-color: rgb(189, 115, 115);
 }
 
-/* Global Styles */
+/*  --------------------------------------------------
+                        Global Styles
+    -------------------------------------------------- */
 * {
   /* box-sizing: border-box; */
   margin: 0;
@@ -36,7 +43,9 @@ body {
   display: flex;
 }
 
-/* Navbar Styles */
+/*  --------------------------------------------------
+                      Navbar Styling
+    -------------------------------------------------- */
 .navbar {
   /* box-sizing: content-box; */
   display: flex;
@@ -85,7 +94,9 @@ body {
   border-style: none;
 }
 
-/* Main Content Styles */
+/*  --------------------------------------------------
+                    Main Content Styling
+    -------------------------------------------------- */
 
 #main-content {  
   display: flex;
@@ -95,9 +106,6 @@ body {
   padding: 20px;
   font-weight: 400;
   color: var(--accent-color);
-  h1 {
-    font-size: 2vw;
-  }
 }
 
 .run-animation {
@@ -118,31 +126,6 @@ body {
   }
 }
 
-/* .workout-logs-content {
-  width: 25%;
-  .button-bar {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 5px;
-  }
-  .data-entry #workout-entry-form {
-    display: flex;
-    flex-flow: column nowrap;
-    .form-component {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-    .button-bar {
-      margin: 10px;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-evenly;
-    }
-  }
-} */
-
 .card {
   box-sizing: border-box;
   padding: 20px;
@@ -152,39 +135,64 @@ body {
   background-image: linear-gradient(to right, var(--secondary-color), var(--primary-color));
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
 }
 
-/* About Page Styling */
+/*  --------------------------------------------------
+              About and Contact Page Styling
+    -------------------------------------------------- */
 
-.about h1 {
-  margin-bottom: 20px;
+.about, .contact {
+  & h1 {
+    margin-bottom: 20px;
+  }
+  & p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  & ul {
+    list-style: disc;
+    padding: 0 20px;
+  }
+  & li {
+    margin-bottom: 10px;
+  }
+  & a {
+    color: var(--accent-color)
+  }
 }
 
-.about p {
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
 
-.about ul {
-  list-style: disc;
-  padding: 0 20px;
-}
+/*  --------------------------------------------------
+                      Tables Styling
+    -------------------------------------------------- */
 
-.about li {
-  margin-bottom: 10px;
-}
-
-/* Selectable Table Styles */
-.selectable-table {
-  table-layout: fixed;
+table {
+  border-collapse: collapse; 
+  table-layout: auto;
   width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  border: 3px solid var(--accent-color);
 }
 
-.selectable-table th {
-  font-size: 1.5vw;
+th, td {
+  /* border-radius: 10px; */
+  border: 1px solid var(--accent-color);
+  padding: 2px;
+  text-align: center; 
+  white-space: pre-wrap;
 }
 
-/* Button Styles */
+tr {
+  font-size: 1.3vw;
+}
+
+
+/*  --------------------------------------------------
+                      Buttons Styling
+    -------------------------------------------------- */
 button {
   background-color: var(--accent-color);
   color: var(--text-color);
@@ -205,6 +213,64 @@ button:active {
   background-color: #00000077;
 }
 
+.button-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-btn {
+  width: 100%; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  font-size: 1.5vw;
+}
+
+.cancel, .delete-btn{
+  background-color: var(--cancel-color);
+  color: var(--accent-color)
+}
+
+input[type="checkbox"] {
+  width: 2vmin;
+  background: transparent;
+}
+
+/*  --------------------------------------------------
+                      Form Styling
+    -------------------------------------------------- */
+
+.form-component {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.macronutrient-inputs input{
+  width: 100%;
+}
+
+input:focus,
+select:focus {
+  border-color: #333;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/*  --------------------------------------------------
+        Animations and Mobile Compatibility Styling
+    -------------------------------------------------- */
 @keyframes fadeInAnimation {
   0% {
     transform: translate(0px, 15px);
@@ -234,4 +300,9 @@ button:active {
   #main-content {
     width: auto;
   }
+
+  thead tr th {
+    writing-mode: vertical-rl;
+  }
+  
 }
