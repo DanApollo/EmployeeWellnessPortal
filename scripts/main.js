@@ -314,6 +314,11 @@ $("#main-content").on("submit", '#nutrition-update-form', async function (event)
     nutritionLogs.click(); // Reload page so that the nutrition_log_id is loaded into each row
 });
 
+$("#main-content").on("click", '#nutrition-update-form .cancel', function () {
+    const nutritionUpdateCard = document.querySelector('.nutrition-update');
+    nutritionUpdateCard.hidden = true;
+});
+
 /*  ----------------------------------------------------------------------
                     NAVIGATION BUTTONS EVENT LISTENERS 
     ---------------------------------------------------------------------- */
