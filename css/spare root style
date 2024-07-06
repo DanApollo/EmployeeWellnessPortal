@@ -1,0 +1,11 @@
+
+
+/* Define color variables */
+:root {
+    --primary-color: #6d835c; /* Soft blue */
+    --secondary-color: #6d835c; /* White */
+    --background-color: #729c65; /* Light blue */
+    --text-color: #666; /* Dark gray */
+    --accent-color: #193c0d; /* Dark blue */
+    --hover-color: #4e763b; /* Light purple */
+  }
