@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="../login.js" defer></script>    
+    <link rel="stylesheet" href="./styles.css">
+    <title>Login/Signup</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="login-header-container">		
+			<div class="logo">
+				<img src="../resources/img/logo.png" alt="logo" width="130px" id="logo">
+			</div>
+			<div>
+				<h1>EMPLOYEE WELLNESS PORTAL</h1>							
+			</div>
+		</div>
+	</div>
+
+
+
+    <div id="login-container">
+        <div id="login-section-box">
+            <h1 id="login-header">#LOGIN</h1>
+            <form id="login-form">
+                <p> <strong>Please enter your login details:</strong></p>    
+                <label for="email" class="inputId">Email:</label>
+                <input type="text" id="login-email" class="inputBox-login" name="email"><br><br>
+                <label for="password" class="inputId">Password:</label>
+                <input type="password" id="login-password" class="inputBox-login" name="password"><br><br>
+                <input type="submit" value="Login" class="button">
+              </form>
+            <p>Don't have an account? <a id="show-signup" href="#signup-section">Sign up</a></p>
+        </div>
+        <div id="signup-section-box" hidden>
+            <h1 id="login-header">#SIGN UP</h1>
+            <form id="signup-form">
+                <label for="username" class="inputId">Username:</label>
+                <input type="text" id="signup-username" name="username" class="inputBox-login"><br><br>
+                <label for="email" class="inputId">Email:</label>
+                <input type="email" id="signup-email" name="email" class="inputBox-login"><br><br>
+                <label for="password" class="inputId">Password:</label>
+                <input type="password" id="signup-password" name="password" class="inputBox-login"><br><br>
+                <label for="confirm-password" class="inputId">Confirm Password:</label>
+                <input type="password" id="signup-confirm-password" name="confirm-password" class="inputBox-login"><br><br>
+                <input type="submit" value="Sign up" class="button">
+            </form>
+            <p>Already have an account? <a id="show-login" href="#login-section">Login</a></p>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</html>
