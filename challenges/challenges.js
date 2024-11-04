@@ -11,7 +11,7 @@ logoutButton.addEventListener("click", async () => {
 })
 
 supabaseClient.supabase.auth.getUser().then(data => {
-  let id = data.data.user.id
+  const id = data.data.user.id
   supabaseClient.read("employees", "user_id", id).then(
     user => {
       employee_id = user.data.id
