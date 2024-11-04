@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fitness Tracker Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div id="loginContainer" class="container">
+        <h2>Login</h2>
+        <form id="loginForm" class="form">
+            <input type="email" id="loginEmail" class="input" placeholder="Email" required>
+            <input type="password" id="loginPassword" class="input" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <a class="change-login">Don't have an account? Click here to sign up.</a>
+        </form>
+    </div>
+
+    <div id="signupContainer" class="container">
+        <h2>Signup</h2>
+        <form id="signupForm" class="form">
+            <input type="text" id="signupFirstName" class="input" placeholder="First Name" required>
+            <input type="text" id="signupLastName" class="input" placeholder="Last Name" required>
+            <input type="text" id="signupDepartment" class="input" placeholder="Department" required>
+            <input type="email" id="signupEmail" class="input" placeholder="Email" required>
+            <input type="password" id="signupPassword" class="input" placeholder="Password" required>
+            <button type="submit">Signup</button>
+            <a class="change-login">Already have an account? Click here to sign in.</a>
+        </form>
+    </div>
+
+    <div id="error"></div>
+
+</body>
+
+</html>

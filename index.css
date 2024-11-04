@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 50px auto;
+  width: 50%;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+
+  .form {
+
+    .input {
+      width: 100%;
+      height: 30px;
+      padding: 0 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .change-login {
+    cursor: pointer;
+  }
+}
+
+#signupContainer {
+  display: none;
+}
+
+#error {
+  color: red;
+  margin-top: 10px;
+}
